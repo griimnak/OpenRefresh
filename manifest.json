@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "OpenRefresh",
+    "description": "Auto refresh script for Chrome-based browsers",
+    "version": "1.0",
+    "author": "griimnak",
+    "icons": {
+        "18": "icon18.png",
+        "48": "icon48.png",
+        "144": "icon144.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["script.js"],
+            "run_at": "document_idle",
+            "all_frames": true
+        }
+    ],
+
+    "browser_action": { "default_popup": "popup.html" },
+    "options_ui": {
+        "page": "popup.html",
+        "open_in_tab": false
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ]
+}
